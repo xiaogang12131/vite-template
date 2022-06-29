@@ -2,8 +2,8 @@
   <div class="hello">
     <h1 class="msg">{{ msg }}</h1>
     <button type="button" @click="handleClick">click</button>
-    <p>name:{{ name }}</p>
-    <p>sex:{{ sex }}</p>
+    <p>测试文本</p>
+    <p :title="name">测试文本</p>
     <p>age:{{ realAge }}</p>
   </div>
 </template>
