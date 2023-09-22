@@ -4941,8 +4941,8 @@ function nf(e, t) {
   return [n, s, r];
 }
 const sf = 'modulepreload',
-  rf = function (e) {
-    return '/' + e;
+  rf = function (e, t) {
+    return new URL(e, t).href;
   },
   pr = {},
   Yt = function (t, n, s) {
@@ -4950,7 +4950,7 @@ const sf = 'modulepreload',
       ? t()
       : Promise.all(
           n.map(r => {
-            if (((r = rf(r)), r in pr)) return;
+            if (((r = rf(r, s)), r in pr)) return;
             pr[r] = !0;
             const o = r.endsWith('.css'),
               i = o ? '[rel="stylesheet"]' : '';
@@ -4978,14 +4978,15 @@ const sf = 'modulepreload',
       name: 'TextWheel',
       component: () =>
         Yt(
-          () => import('./Index2.78ecfeb3.js'),
+          () => import('./Index2.d204cef8.js'),
           [
-            'assets/Index2.78ecfeb3.js',
-            'assets/Index2.6a00970e.css',
-            'assets/data.36e83042.js',
-            'assets/TagCloud.04910727.js',
-            'assets/_plugin-vue_export-helper.cdc0426e.js',
-          ]
+            'Index2.d204cef8.js',
+            'Index2.6a00970e.css',
+            'data.36e83042.js',
+            'TagCloud.04910727.js',
+            '_plugin-vue_export-helper.cdc0426e.js',
+          ],
+          import.meta.url
         ),
     },
     {
@@ -4993,14 +4994,15 @@ const sf = 'modulepreload',
       name: 'TextSphere',
       component: () =>
         Yt(
-          () => import('./Index.61b4f2d4.js'),
+          () => import('./Index.3217249a.js'),
           [
-            'assets/Index.61b4f2d4.js',
-            'assets/Index.94d6ede8.css',
-            'assets/data.36e83042.js',
-            'assets/TagCloud.04910727.js',
-            'assets/_plugin-vue_export-helper.cdc0426e.js',
-          ]
+            'Index.3217249a.js',
+            'Index.94d6ede8.css',
+            'data.36e83042.js',
+            'TagCloud.04910727.js',
+            '_plugin-vue_export-helper.cdc0426e.js',
+          ],
+          import.meta.url
         ),
     },
     {
@@ -5008,13 +5010,14 @@ const sf = 'modulepreload',
       name: 'TextRing',
       component: () =>
         Yt(
-          () => import('./Index.606d1577.js'),
+          () => import('./Index.a31b9661.js'),
           [
-            'assets/Index.606d1577.js',
-            'assets/Index.6c4914c1.css',
-            'assets/data.36e83042.js',
-            'assets/_plugin-vue_export-helper.cdc0426e.js',
-          ]
+            'Index.a31b9661.js',
+            'Index.6c4914c1.css',
+            'data.36e83042.js',
+            '_plugin-vue_export-helper.cdc0426e.js',
+          ],
+          import.meta.url
         ),
     },
     {
@@ -5022,17 +5025,14 @@ const sf = 'modulepreload',
       name: 'TextCloud',
       component: () =>
         Yt(
-          () => import('./Index.4254a88c.js'),
-          [
-            'assets/Index.4254a88c.js',
-            'assets/Index.f9340258.css',
-            'assets/data.36e83042.js',
-          ]
+          () => import('./Index.ead5b598.js'),
+          ['Index.ead5b598.js', 'Index.f9340258.css', 'data.36e83042.js'],
+          import.meta.url
         ),
     },
   ],
   of = tf({
-    history: bc('/'),
+    history: bc('./'),
     routes: [{ path: '/', redirect: '/textWheel' }, ...Io],
   }),
   lf = { class: 'wrapper' },
