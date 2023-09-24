@@ -27573,7 +27573,7 @@ const id = [
   ],
   aS = Pg({
     history: $m(),
-    routes: [{ path: '/', redirect: '/textWheel' }, ...id],
+    routes: [{ path: '/', redirect: '/textCloud' }, ...id],
   }),
   lS = { class: 'wrapper' },
   cS = { class: 'container' },
