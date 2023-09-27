@@ -10,12 +10,14 @@
     <p class="smoky">云散</p>
   </div>
   <br />
+  <button class="btn border"><span>彩色边框</span></button>
+  <br />
   <span class="streamer">文字颜色流光效果</span>
 </template>
 
 <script lang="ts" setup></script>
 
-<style scoped>
+<style lang="less" scoped>
 .btn {
   position: relative;
   display: inline-block;
@@ -29,44 +31,56 @@
   margin-bottom: 40px;
 }
 
-/*线条*/
-.line::before,
-.line::after {
-  pointer-events: none;
-  content: '';
-  position: absolute;
-  border: 1px solid transparent;
-  width: 0px;
-  height: 0px;
-  border-radius: 2px;
-}
-.line::before {
-  top: 0px;
-  left: 0px;
-}
-.line::after {
-  bottom: 0px;
-  right: 0px;
-}
-.line:hover::before,
-.line:hover::after {
-  width: 100%;
-  height: 100%;
-  transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
-}
-.line:hover::before {
-  border-top-color: #333;
-  border-right-color: #333;
-}
-.line:hover::after {
-  border-bottom-color: #333;
-  border-left-color: #333;
+/* 线条 */
+.line {
+  &::before,
+  &::after {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    border: 1px solid transparent;
+    width: 0px;
+    height: 0px;
+    border-radius: 2px;
+  }
+
+  &::before {
+    top: 0px;
+    left: 0px;
+  }
+
+  &::after {
+    bottom: 0px;
+    right: 0px;
+  }
+
+  &:hover {
+    background: #fff;
+  }
+
+  &:hover::before,
+  .line:hover::after {
+    width: 100%;
+    height: 100%;
+    transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
+  }
+
+  &:hover::before {
+    border-top-color: #333;
+    border-right-color: #333;
+  }
+
+  &:hover::after {
+    border-bottom-color: #333;
+    border-left-color: #333;
+  }
 }
 
-/*闪动*/
+/* 闪动 */
 .light {
   animation: shineLight 1.8s infinite;
 }
+
 @keyframes shineLight {
   0% {
     box-shadow: 0 0 0 0 rgba(12, 97, 207, 0.4);
@@ -77,10 +91,11 @@
   }
 }
 
-/*光亮*/
+/* 光亮 */
 .light {
   animation: shineLight 1.8s infinite;
 }
+
 @keyframes shineLight {
   0% {
     box-shadow: 0 0 0 0 rgba(12, 97, 207, 0.4);
@@ -91,10 +106,11 @@
   }
 }
 
-/*闪烁*/
+/* 闪烁 */
 .flash {
   animation: flash 1s infinite;
 }
+
 @keyframes flash {
   0%,
   50%,
@@ -110,22 +126,25 @@
   }
 }
 
-/*烟雾*/
+/* 烟雾 */
 .smoky-content {
   display: flex;
   justify-content: center;
-}
-.smoky:nth-child(1) {
-  animation-delay: 1s;
+
+  .smoky {
+    text-shadow: 0 0 0 #333;
+    animation: smoky 4s infinite;
+
+    &:nth-child(1) {
+      animation-delay: 1s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 1.2s;
+    }
+  }
 }
 
-.smoky:nth-child(2) {
-  animation-delay: 1.2s;
-}
-.smoky {
-  text-shadow: 0 0 0 #333;
-  animation: smoky 4s infinite;
-}
 @keyframes smoky {
   60% {
     text-shadow: 0 0 40px #333;
@@ -138,8 +157,54 @@
     opacity: 0;
   }
 }
+/* 边框 */
+.border {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 3px;
 
-/*流光*/
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      115deg,
+      #4fcf70,
+      #fad648,
+      #a767e5,
+      #12bcfe,
+      #44ce7b
+    );
+    background-size: 50% 100%;
+    animation: borderMove 0.75s linear infinite;
+  }
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    background: lightblue;
+    border-radius: 3px;
+  }
+}
+
+@keyframes borderMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 流光 */
 .streamer {
   font-size: 24px;
   font-weight: bolder;

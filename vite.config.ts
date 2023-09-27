@@ -19,4 +19,12 @@ export default defineConfig({
       components: resolve(__dirname, 'src/components'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        math: 'always',
+      },
+    },
+  },
 });
