@@ -59,7 +59,7 @@
   }
 
   &:hover::before,
-  .line:hover::after {
+  &:hover::after {
     width: 100%;
     height: 100%;
     transition: width 0.2s ease-out, height 0.2s ease-out 0.2s;
