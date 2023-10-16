@@ -32279,10 +32279,7 @@ const n_ = [
     { path: '/textCloud', name: 'TextCloud', component: pE },
     { path: '/text', name: 'Text', component: EE },
   ],
-  iA = Rv({
-    history: $x(),
-    routes: [{ path: '/', redirect: '/text1' }, ...n_],
-  }),
+  iA = Rv({ history: $x(), routes: [{ path: '/', redirect: '/text' }, ...n_] }),
   rA = { class: 'wrapper' },
   sA = { class: 'container' },
   oA = Dr({
